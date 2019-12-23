@@ -4,11 +4,18 @@ const ctx = canvas.getContext('2d');
 const width = canvas.width;
 const height = canvas.height;
 
+const colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple'];
+
 const Ball = function() {
     this.x = width / 2;
     this.y = height / 2;
     this.xSpeed = Math.random() * 10 - 5;
     this.ySpeed = Math.random() * 10 - 5;
+    this.color = pickRandomColor(colors);
+};
+
+const pickRandomColor = function(colors) {
+    return colors[Math.floor(Math.random() * colors.length)];
 };
 
 const circle = function(x, y, radius, fillCircle) {
@@ -21,6 +28,7 @@ const circle = function(x, y, radius, fillCircle) {
     }
 };
 Ball.prototype.draw = function() {
+    ctx.fillStyle = this.color;
     circle(this.x, this.y, 3, true);
 };
 Ball.prototype.move = function() {
