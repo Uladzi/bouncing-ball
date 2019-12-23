@@ -7,8 +7,8 @@ const height = canvas.height;
 const Ball = function() {
     this.x = width / 2;
     this.y = height / 2;
-    this.xSpeed = -2;
-    this.ySpeed = 3;
+    this.xSpeed = Math.random() * 10 - 5;
+    this.ySpeed = Math.random() * 10 - 5;
 };
 
 const circle = function(x, y, radius, fillCircle) {
