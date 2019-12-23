@@ -36,12 +36,17 @@ Ball.prototype.checkCollision = function() {
     }
 };
 
-const ball = new Ball();
+const setOfBalls = [];
+for (let i = 0; i < 10; i++) {
+    setOfBalls[i] = new Ball();
+}
 
 setInterval(function() {
     ctx.clearRect(0, 0, width, height);
-    ball.draw();
-    ball.move();
-    ball.checkCollision();
+    for (let i = 0; i < setOfBalls.length; i++) {
+        setOfBalls[i].draw();
+        setOfBalls[i].move();
+        setOfBalls[i].checkCollision();
+    }
     ctx.strokeRect(0, 0, width, height);
 }, 30);
